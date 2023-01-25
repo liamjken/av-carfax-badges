@@ -11,3 +11,5 @@
  * Text Domain:       av-carfax-badges
  * Domain Path:       /languages
  */
+
+ include( plugin_dir_path( __FILE__ ) . 'includes/carfax-auth.php');
