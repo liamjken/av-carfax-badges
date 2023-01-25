@@ -13,3 +13,4 @@
  */
 
  include( plugin_dir_path( __FILE__ ) . 'includes/carfax-auth.php');
+ include( plugin_dir_path( __FILE__ ) . 'includes/av-carfax-admin.php');
