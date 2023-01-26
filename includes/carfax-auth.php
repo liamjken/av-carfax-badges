@@ -1,4 +1,6 @@
 <?php
+function carfax_auth() {
+
 
 $curl = curl_init();
 $av_cf_client_id = esc_attr( get_option('client_id') );
@@ -22,6 +24,11 @@ curl_setopt_array($curl, array(
 ));
 
 $response = curl_exec($curl);
+$respArray = json_decode($response, true);
+$access_token = $respArray['access_token'];
 
 curl_close($curl);
-echo $response;
+
+return $access_token;
+
+}
