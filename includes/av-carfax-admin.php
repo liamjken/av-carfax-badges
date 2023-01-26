@@ -17,6 +17,7 @@ function av_cf_create_menu() {
     //register our settings
     register_setting( 'av-cf-settings-group', 'client_id' );
     register_setting( 'av-cf-settings-group', 'client_secret' );
+    register_setting( 'av-cf-settings-group', 'cf_dealer_id' );
   }
   
 
@@ -41,6 +42,11 @@ function av_cf_settings_page() {
         <tr valign="top">
         <th scope="row">Client Secret</th>
         <td><input type="text" name="client_secret" value="<?php echo esc_attr( get_option('client_secret') ); ?>" /></td>
+        </tr>
+           
+        <tr valign="top">
+        <th scope="row">Carfax Dealer ID</th>
+        <td><input type="text" name="cf_dealer_id" value="<?php echo esc_attr( get_option('cf_dealer_id') ); ?>" /></td>
         </tr>
     </table>
     

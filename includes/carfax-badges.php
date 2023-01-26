@@ -9,9 +9,11 @@ if (empty($vin_numb)) {
  } else {
     $vin_num = $vin_numb;
  }
+ $av_cf_dealer = esc_attr( get_option('cf_dealer_id') );
+
 
 curl_setopt_array($av_curl, array(
-  CURLOPT_URL => 'https://badgingapi.carfax.ca/api/v3/badges?CompanyId=19400&Language=en&Vin='.$vin_num.'',
+  CURLOPT_URL => 'https://badgingapi.carfax.ca/api/v3/badges?CompanyId='.$av_cf_dealer.'&Language=en&Vin='.$vin_num.'',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
