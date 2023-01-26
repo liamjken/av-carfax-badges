@@ -3,9 +3,15 @@
 function carfax_badge_insert() {
 
 $av_curl = curl_init();
+$vin_numb = get_post_meta(get_the_id(), 'vin_number', true);
+if (empty($vin_numb)) {
+    $vin_num = 1;
+ } else {
+    $vin_num = $vin_numb;
+ }
 
 curl_setopt_array($av_curl, array(
-  CURLOPT_URL => 'https://badgingapi.carfax.ca/api/v3/badges?CompanyId=19400&Language=en&Vin=4T1B61HK6KU285720',
+  CURLOPT_URL => 'https://badgingapi.carfax.ca/api/v3/badges?CompanyId=19400&Language=en&Vin='.$vin_num.'',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
@@ -23,13 +29,13 @@ $av_response = curl_exec($av_curl);
 
 curl_close($av_curl);
 $resparray = json_decode($av_response, true);
-$cfurl = $resparray["ResponseData"]["Badges"][0]["BadgesImageUrl"];
+$cfImgurl = $resparray["ResponseData"]["Badges"][0]["BadgesImageUrl"];
+$cfReportUrl = $resparray["ResponseData"]["Badges"][0]["VhrReportUrl"];
 
 ob_start();
     ?>
 
-<img src="<?php echo $cfurl ?>">
-
+<a href="<?php echo $cfReportUrl ?>"  target="_blank"><img style="height: 55px;" src="<?php echo $cfImgurl ?>"></a>
     <?php
 
     $output = ob_get_contents();
