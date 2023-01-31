@@ -3,7 +3,7 @@
  * Plugin Name:       AV Carfax Badges
  * Plugin URI:        https://autoverify.com
  * Description:       This plugin is intended to integartate the Carfax badging API with the inventory.
- * Version:           1.0.0
+ * Version:           1.1.0
  * Requires at least: 5.9
  * Requires PHP:      7.2
  * Author:            Liam Kennedy
