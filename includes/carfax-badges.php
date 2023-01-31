@@ -39,6 +39,7 @@ ob_start();
     ?>
 
 <a href="<?php echo $cfReportUrl ?>"  target="_blank"><img style="height: 55px;" src="<?php echo $cfImgurl ?>"></a>
+<?php echo $av_auth_token ?>
     <?php
 
     $output = ob_get_contents();
