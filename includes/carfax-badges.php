@@ -30,6 +30,10 @@ curl_setopt_array($av_curl, array(
 
 $av_response = curl_exec($av_curl);
 
+if (empty($av_response)){
+  carfax_auth();
+}
+
 curl_close($av_curl);
 $resparray = json_decode($av_response, true);
 $cfImgurl = $resparray["ResponseData"]["Badges"][0]["BadgesImageUrl"];
@@ -39,7 +43,6 @@ ob_start();
     ?>
 
 <a href="<?php echo $cfReportUrl ?>"  target="_blank"><img style="height: 55px;" src="<?php echo $cfImgurl ?>"></a>
-<?php echo $av_auth_token ?>
     <?php
 
     $output = ob_get_contents();
@@ -50,3 +53,4 @@ ob_start();
 }
 
 add_shortcode('carfax-insert', 'carfax_badge_insert'); 
+
