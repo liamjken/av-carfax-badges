@@ -10,6 +10,7 @@ if (empty($vin_numb)) {
     $vin_num = $vin_numb;
  }
  $av_cf_dealer = esc_attr( get_option('cf_dealer_id') );
+ $av_auth_token = esc_attr( get_option('auth_token') );
 
 
 curl_setopt_array($av_curl, array(
@@ -23,7 +24,7 @@ curl_setopt_array($av_curl, array(
   CURLOPT_CUSTOMREQUEST => 'GET',
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
-    'Authorization: Bearer '.carfax_auth().''
+    'Authorization: Bearer '.$av_auth_token.''
   ),
 ));
 
