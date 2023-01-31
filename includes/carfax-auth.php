@@ -29,6 +29,6 @@ $access_token = $respArray['access_token'];
 
 curl_close($curl);
 
-return $access_token;
+update_option( 'auth_token', $access_token );
 
 }
