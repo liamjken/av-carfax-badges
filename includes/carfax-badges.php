@@ -42,7 +42,7 @@ $cfReportUrl = $resparray["ResponseData"]["Badges"][0]["VhrReportUrl"];
 ob_start();
     ?>
 
-<a href="<?php echo $cfReportUrl ?>"  target="_blank"><img style="height: 55px;" src="<?php echo $cfImgurl ?>"></a>
+<a href="<?php echo $cfReportUrl ?>"  target="_blank"><img style="height: 55px;margin-bottom: 60px;" src="<?php echo $cfImgurl ?>"></a>
     <?php
 
     $output = ob_get_contents();
